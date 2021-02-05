@@ -146,12 +146,8 @@ func main() {
 	fmt.Printf("array2: %v\n\n", array2)
 
 	//3#
-	array3 := make([]int, 3)
-	fmt.Printf("array3: %v\n\n", array3)
-
-	//4#
-	var array4 [4]int
-	fmt.Printf("array4: %v\n\n", array4) //will print an empty array
+	var array3 [4]int
+	fmt.Printf("array4: %v\n\n", array3) //will print an empty array
 
 	//Adding elements to the array:
 	array3[0] = 1
@@ -169,11 +165,30 @@ func main() {
 	arrayXY[2] = [3]int{7, 8, 9}
 	fmt.Printf("Bidimensional array: %v\n\n", arrayXY)
 
-	//Obs: When you create an array in golang, you don't create a reference to the existing array, instead you create a new one
+	//Obs: When you create an array through another array, you don't create a reference to the existing array, instead you create a new one
 	//Ex:
-	array5 := [...]int{1, 2, 3}
-	array6 := array5
-	array6[1] = 5
-	fmt.Printf("array5: %v", array5)
-	fmt.Printf("array6: %v", array6)
+	array4 := [...]int{1, 2, 3}
+	array5 := array4
+	array5[1] = 5
+	fmt.Printf("array5: %v", array4)
+	fmt.Printf("array6: %v", array5)
+
+	//Slice array
+	//This is a expandable array(a List if you will)
+
+	//#1
+	array6 := make([]int, 3)
+	fmt.Printf("array3: %v\n\n", array6)
+
+	//#2
+	array7 := []int{1, 2, 3}
+	fmt.Println(array7)
+
+	//Obs: when you create a slice through another slice, they'll always be a reference
+	//Ex:
+	array8 := array7
+	array8[1] = 5
+	fmt.Printf("array5: %v", array7)
+	fmt.Printf("array6: %v", array8)
+
 }
