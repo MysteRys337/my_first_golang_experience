@@ -22,7 +22,7 @@ var J int = 2
 
 //main function(first to be executed)
 func main() {
-	//ways of assigning variables(obs: every variable decleared in a function are only visible inside of the function(block scope))
+	//ways of assigning variables(obs: every variable decleared in a function is only visible inside of the function(block scope))
 
 	/* //This was commented because it's not possible to compile codes were values are not used
 	var a int = 1
