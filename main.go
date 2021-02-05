@@ -178,17 +178,29 @@ func main() {
 
 	//#1
 	array6 := make([]int, 3)
-	fmt.Printf("array3: %v\n\n", array6)
+	fmt.Printf("array6: %v\n\n", array6)
 
 	//#2
 	array7 := []int{1, 2, 3}
-	fmt.Println(array7)
+	fmt.Printf("array7: %v\n\n", array7)
 
 	//Obs: when you create a slice through another slice, they'll always be a reference
 	//Ex:
 	array8 := array7
 	array8[1] = 5
-	fmt.Printf("array5: %v", array7)
-	fmt.Printf("array6: %v", array8)
+	fmt.Printf("array7: %v\n\n", array7)
+	fmt.Printf("array8: %v\n\n", array8)
+
+	//How to create a copy of another Slice
+	array9 := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	array10 := array9[:]   //create a slice with all elements of array9
+	array11 := array9[3:]  //create a slice from the 4th element to the end
+	array12 := array9[:6]  //create a slice from the first 6 elements
+	array13 := array9[3:6] //create a slice with the elements between the 3 and 6 element
+	fmt.Printf("array9  = %v\n", array9)
+	fmt.Printf("array10 = %v\n", array10)
+	fmt.Printf("array11 = %v\n", array11)
+	fmt.Printf("array12 = %v\n", array12)
+	fmt.Printf("array13 = %v\n\n", array13)
 
 }
