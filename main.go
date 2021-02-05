@@ -20,6 +20,21 @@ var i int = 32
 //global variable that is globaly visible(upper case)
 var J int = 2
 
+//Declaring constants
+const k int16 = 1
+
+//declaring multiple constants
+const (
+	a = iota // set a counter for enumerated constants(starts with 0)
+	b
+	c
+) //Obs: By not assigning a value to 'b' and 'c' the compiler is going to infer these values based on 'a'
+/* So...
+*  a = 0
+*  b = 1
+*  c = 2
+ */
+
 //main function(first to be executed)
 func main() {
 	//ways of assigning variables(obs: every variable decleared in a function is only visible inside of the function(block scope))
@@ -34,9 +49,12 @@ func main() {
 	)
 	*/
 
-	i := 10        //:= -> walrus operator
-	n := int8(i)   //Converting to a 8 bit integer
-	fmt.Println(n) //Print line
+	i := 10 //:= -> walrus operator
+	//Also, notices that I declare a variable named "i" inside and outside of this function, this is called "shadowing" and it's the ability of creating same name
+	//variables inside and outside of block scopes
+
+	n := int8(i)                                                //Converting to a 8 bit integer
+	fmt.Printf("Converting to a 8 bit integer:\nn = %v\n\n", n) //Print line
 
 	/* //Direct conversion of int to String(will print the ascii value of said integer)
 	a := string(i)
@@ -45,9 +63,8 @@ func main() {
 
 	//String conversion
 	//Ex:
-	j := strconv.Itoa(i) // Itoa -> Integer to ASCII
-	fmt.Println(j)
-	fmt.Printf("%v, %T", i, i) // Print Format -> %v = value , %T = type of value
+	j := strconv.Itoa(i)                                                                    // Itoa -> Integer to ASCII
+	fmt.Printf("Correct way of converting int to string:\n %v, %T\n%v, %T\n\n", i, i, j, j) // Print Format -> %v = value , %T = type of value
 
 	//Data types
 	//
@@ -91,11 +108,11 @@ func main() {
 	// complex(5,12) => 5 + 12i
 	//Ex:
 	c := complex(5, 12)
-	fmt.Println(c)
+	fmt.Printf("Complex numbers in go:\n %v,%T\n\n", c, c)
 	// To convert the real and imaginary part of complex use:
 	// real(n) && imag(n)
 	//Ex:
-	fmt.Println(real(c) + imag(c))
+	fmt.Printf("Converting the real -> %v\nConverting the imaginary -> %v\n\n", real(c), imag(c))
 	//
 	//String
 	//
@@ -103,19 +120,60 @@ func main() {
 	//
 	//Obs: it's possible to treat a string as an array
 	//Ex:
-	s := "A string"
-	fmt.Printf("%v", s[2])
+	s := "Printing a string"
+	fmt.Printf("Printing a string's third char -> %v\n\n", s[2])
 	//
 	//Obs: Is possible to convert a String into a byte array
 	//Ex:
 	b := []byte(s)
-	fmt.Println(b)
+	fmt.Printf("Printing a byte array -> %b\n\n", b)
 	//
 	//Rune
 	//
 	//Rune represents a int32 char(but it doesn't have to be 32bits long)
 	//Ex:
 	var r rune = 'a'
-	fmt.Printf("%v,%T", r, r) // Notices that the type of this rune is listed as a int32
+	fmt.Printf("Printing a rune:\n%v,%T\n\n", r, r) // Notices that the type of this rune is listed as a int32
 
+	//Arrays
+	//Types of declaration
+	//1#
+	array1 := [3]int{1, 2, 3}
+	fmt.Printf("array1: %v\n\n", array1)
+
+	//2#
+	array2 := [...]int{1, 2, 3, 4, 5}
+	fmt.Printf("array2: %v\n\n", array2)
+
+	//3#
+	array3 := make([]int, 3)
+	fmt.Printf("array3: %v\n\n", array3)
+
+	//4#
+	var array4 [4]int
+	fmt.Printf("array4: %v\n\n", array4) //will print an empty array
+
+	//Adding elements to the array:
+	array3[0] = 1
+	fmt.Printf("New element added to array3: %v\n\n", array3)
+
+	//Printing the length of 'array3'
+	fmt.Printf("array3's length: %v\n\n", len(array3))
+	//Obs: len will print the number of elements an array can hold, and not how many items were added
+	//Notices that "fmt.Printf("array3's length: %v\n\n", len(array3))" will print '3' instead of '1'
+
+	//Bidimensional arrays
+	var arrayXY [3][3]int
+	arrayXY[0] = [3]int{1, 2, 3}
+	arrayXY[1] = [3]int{4, 5, 6}
+	arrayXY[2] = [3]int{7, 8, 9}
+	fmt.Printf("Bidimensional array: %v\n\n", arrayXY)
+
+	//Obs: When you create an array in golang, you don't create a reference to the existing array, instead you create a new one
+	//Ex:
+	array5 := [...]int{1, 2, 3}
+	array6 := array5
+	array6[1] = 5
+	fmt.Printf("array5: %v", array5)
+	fmt.Printf("array6: %v", array6)
 }
