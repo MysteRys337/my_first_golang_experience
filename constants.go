@@ -1,6 +1,11 @@
+/*
+*	Learning about constants in golang
+ */
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 //Declaring constants
 //OBS: the same lower case, upper case rule on variables works in here
@@ -20,5 +25,15 @@ const (
 
 func constants() {
 	const k int = 5 //shadowing the block scope k with the global scope k
-	fmt.Printf("k = %v", k)
+	fmt.Printf("k = %v\n\n", k)
+
+	//Obs: constants must be values that can be found on compile time
+	//Ex:
+	//const c = math.Sin(1)
+
+	//Obs2: You can use any basic data type to be constants
+	const integer = 1
+	const float = 3.4
+	const text = "Hi"
+	fmt.Printf("%v,%v,%v\n\n", integer, float, text)
 }

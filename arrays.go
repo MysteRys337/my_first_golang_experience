@@ -15,7 +15,7 @@ func arrays() {
 	fmt.Printf("array1: %v\n\n", array1)
 
 	//2#
-	array2 := [...]int{1, 2, 3, 4, 5}
+	array2 := [...]int{1, 2, 3, 4, 5} //=> This is a slice
 	fmt.Printf("array2: %v\n\n", array2)
 
 	//3#

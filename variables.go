@@ -1,8 +1,11 @@
+/*
+* Learning how to use variables with the basic data types in go
+ */
 package main
 
 import (
 	"fmt"
-	"strconv"
+	"strconv" //String conversion library
 )
 
 //global variable that is only visible to the package(lower case)

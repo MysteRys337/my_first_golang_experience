@@ -29,7 +29,7 @@
 package main
 
 //packages imported to the project
-import "fmt"
+import "fmt" //Basic I/O library from golang
 
 //main function(first to be executed)
 func main() {
